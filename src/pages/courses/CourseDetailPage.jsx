@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useParams, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Star, ChevronDown, Check, Play, Clock, Globe, Award, HelpCircle, ArrowLeft } from "lucide-react";
 
 // Master database of all courses mapped to IDs 1 to 16
@@ -413,6 +414,32 @@ function CourseDetailPage() {
 
   return (
     <div className="bg-slate-50 min-h-screen pb-20">
+      <Helmet>
+        <title>{course.title} | EDUWave</title>
+        <meta name="description" content={course.description.substring(0, 160)} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Course",
+            "name": course.title,
+            "description": course.description,
+            "provider": {
+              "@type": "Organization",
+              "name": "EDUWave",
+              "sameAs": "https://eduwave.com/"
+            },
+            "instructor": {
+              "@type": "Person",
+              "name": course.instructor
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": course.price.replace(/[^0-9.]/g, ''),
+              "priceCurrency": "INR"
+            }
+          })}
+        </script>
+      </Helmet>
       {/* Dark Slate Hero Banner */}
       <div className="bg-slate-900 text-white py-16 px-6 sm:px-12 lg:px-16 border-b border-slate-800">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

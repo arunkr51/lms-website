@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Award, Users, Compass, BookOpen, Heart, Target, Lightbulb, GraduationCap, ArrowRight } from "lucide-react";
 
 function AboutUsPage() {
@@ -56,6 +57,10 @@ function AboutUsPage() {
 
   return (
     <div className="bg-slate-50/50 min-h-screen pb-20">
+      <Helmet>
+        <title>About Us | EDUWave</title>
+        <meta name="description" content="Discover the mission, values, and world-class educators behind EDUWave." />
+      </Helmet>
       
       {/* Premium Hero Banner */}
       <div className="relative bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white py-24 px-6 sm:px-12 lg:px-16 overflow-hidden border-b border-slate-800">

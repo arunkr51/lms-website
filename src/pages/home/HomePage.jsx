@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 
@@ -280,6 +281,20 @@ function HomePage() {
 
   return (
     <section className="m-0 p-0">
+      <Helmet>
+        <title>EDUWave | Learn Today, Lead Tomorrow</title>
+        <meta name="description" content="Discover interactive lessons, expert tutors, and study tools designed for students of every level at EDUWave." />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "EDUWave",
+              "url": "https://eduwave.com/"
+            }
+          `}
+        </script>
+      </Helmet>
       <div className="relative overflow-x-hidden">
         <div className="relative left-1/2 w-[100dvw] -translate-x-1/2">
           <div className="relative h-[min(70vh,760px)] w-full overflow-hidden bg-slate-950">
